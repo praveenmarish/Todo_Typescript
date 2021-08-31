@@ -4,9 +4,9 @@
   "description": "",
   "main": "src/server.ts",
   "scripts": {
-    "server": "nodemon dist/js/server.js",
-    "client": "npm start --prefix client",
-    "start": "concurrently \"npm run server\" \"npm run client\""
+    "start": "nodemon -e ts --exec \"ts-node src/server.ts\"",
+    "build": "tsc",
+    "deploy": "concurrently \"tsc -w\" \"nodemon dist/js/server.js\""
   },
   "keywords": [],
   "author": "",
