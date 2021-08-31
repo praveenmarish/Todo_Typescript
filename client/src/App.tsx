@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import TodoItem from "./components/TodoItem";
 import AddTodo from "./components/AddTodo";
 import { getTodos, addTodo, updateTodo, deleteTodo } from "./API";
+import { Container } from "@material-ui/core";
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<ITodo[]>([]);
@@ -52,15 +53,28 @@ const App: React.FC = () => {
 
   return (
     <main className="App">
-      <AddTodo saveTodo={handleSaveTodo} />
-      {todos.map((todo: ITodo) => (
-        <TodoItem
-          key={todo._id}
-          updateTodo={handleUpdateTodo}
-          deleteTodo={handleDeleteTodo}
-          todo={todo}
-        />
-      ))}
+      <Container
+        maxWidth="xs"
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%,-50%)",
+          boxShadow: "0 1rem 2rem rgba(0, 0, 0, 0.2)",
+          paddingTop: "20px",
+          paddingBottom: "20px",
+        }}
+      >
+        <AddTodo saveTodo={handleSaveTodo} />
+        {todos.map((todo: ITodo) => (
+          <TodoItem
+            key={todo._id}
+            updateTodo={handleUpdateTodo}
+            deleteTodo={handleDeleteTodo}
+            todo={todo}
+          />
+        ))}
+      </Container>
     </main>
   );
 };
