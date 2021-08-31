@@ -4,9 +4,7 @@
   "description": "",
   "main": "src/server.ts",
   "scripts": {
-    "start": "nodemon -e ts --exec \"ts-node src/server.ts\"",
-    "build": "tsc",
-    "deploy": "concurrently \"tsc -w\" \"nodemon dist/js/server.js\""
+    "start": "nodemon dist/js/server.js"
   },
   "keywords": [],
   "author": "",
